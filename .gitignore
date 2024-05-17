@@ -1,0 +1,11 @@
+/.mendix-cache
+/.svn
+/deployment
+/releases
+/theme-cache
+/.classpath
+/.DS_Store
+/.project
+/FileActions.mpr.bak
+/FileActions.mpr.lock
+/FileActions_main.launch
