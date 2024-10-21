@@ -13,6 +13,9 @@ import java.io.File;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
+/**
+ * Returns the parent directory of the argument file.
+ */
 public class GetParent extends CustomJavaAction<java.lang.String>
 {
 	private java.lang.String path;

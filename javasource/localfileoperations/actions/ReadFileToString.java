@@ -14,6 +14,9 @@ import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
+/**
+ * Reads the contents of a file and returns this as a String.
+ */
 public class ReadFileToString extends CustomJavaAction<java.lang.String>
 {
 	private java.lang.String file;

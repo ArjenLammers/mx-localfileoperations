@@ -16,6 +16,9 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
+/**
+ * Reads the contents of a file and stores it in a FileDocument.
+ */
 public class FileToFileDocument extends CustomJavaAction<java.lang.Void>
 {
 	private java.lang.String file;

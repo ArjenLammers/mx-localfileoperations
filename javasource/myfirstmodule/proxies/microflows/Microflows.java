@@ -25,4 +25,15 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		Core.microflowCall("MyFirstModule.ACT_Test1").withParams(params).execute(context);
 	}
+	public static void aCT_Test2(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("MyFirstModule.ACT_Test2").withParams(params).execute(context);
+	}
+	public static void aCT_Test3(IContext context, myfirstmodule.proxies.MyFile _myFile)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("MyFile", _myFile == null ? null : _myFile.getMendixObject());
+		Core.microflowCall("MyFirstModule.ACT_Test3").withParams(params).execute(context);
+	}
 }

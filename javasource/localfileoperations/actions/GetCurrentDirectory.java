@@ -13,6 +13,9 @@ import java.io.File;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
+/**
+ * Gets the current working directory (usually where the Mendix application is deployed).
+ */
 public class GetCurrentDirectory extends CustomJavaAction<java.lang.String>
 {
 	public GetCurrentDirectory(IContext context)

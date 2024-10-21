@@ -1,4 +1,7 @@
-dependency commons-io:commons-io:2.11.0
+dependency commons-io:commons-io:2.17.0
 
 delete commons-io-2.11.0.jar
 delete commons-io-2.11.0.jar.LocalFileOperations.RequiredLib
+delete commons-io-2.17.0.jar
+delete commons-io-2.17.0.jar.LocalFileOperations.RequiredLib
+

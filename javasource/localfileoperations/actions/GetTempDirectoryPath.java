@@ -13,6 +13,9 @@ import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
+/**
+ * Returns the path for storage of temporary files.
+ */
 public class GetTempDirectoryPath extends CustomJavaAction<java.lang.String>
 {
 	public GetTempDirectoryPath(IContext context)

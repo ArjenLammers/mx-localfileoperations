@@ -24,7 +24,7 @@ import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 /**
- * Reads the contents of a file into a String.
+ * Returns a list of File entities which are contained in the supplied path.
  */
 public class List extends CustomJavaAction<java.util.List<IMendixObject>>
 {

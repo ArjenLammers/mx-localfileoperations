@@ -13,6 +13,9 @@ import java.io.File;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
+/**
+ * Returns the separator of the filesystem (usually / or \\).
+ */
 public class GetSeparator extends CustomJavaAction<java.lang.String>
 {
 	public GetSeparator(IContext context)

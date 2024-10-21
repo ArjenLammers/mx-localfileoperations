@@ -19,6 +19,9 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
+/**
+ * Writes the contents of a FileDocument to a location on the local server.
+ */
 public class FileDocumentToFile extends CustomJavaAction<java.lang.Void>
 {
 	private java.lang.String file;
