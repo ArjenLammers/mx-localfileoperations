@@ -12,11 +12,12 @@ package localfileoperations.actions;
 import java.io.File;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Returns the separator of the filesystem (usually / or \\).
  */
-public class GetSeparator extends CustomJavaAction<java.lang.String>
+public class GetSeparator extends UserAction<java.lang.String>
 {
 	public GetSeparator(IContext context)
 	{

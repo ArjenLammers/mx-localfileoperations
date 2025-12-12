@@ -4,71 +4,146 @@
 
 package localfileoperations.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the LocalFileOperations module
-	public static void aCT_Delete(IContext context, localfileoperations.proxies.File _file)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteBuilder(
+		localfileoperations.proxies.File _file
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("File", _file == null ? null : _file.getMendixObject());
-		Core.microflowCall("LocalFileOperations.ACT_Delete").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LocalFileOperations.ACT_Delete");
+		builder = builder.withParam("File", _file);
+		return builder;
 	}
-	public static void aCT_Open(IContext context, localfileoperations.proxies.File _file, localfileoperations.proxies.Explorer _explorer)
+
+	public static void aCT_Delete(
+		IContext context,
+		localfileoperations.proxies.File _file
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("File", _file == null ? null : _file.getMendixObject());
-		params.put("Explorer", _explorer == null ? null : _explorer.getMendixObject());
-		Core.microflowCall("LocalFileOperations.ACT_Open").withParams(params).execute(context);
+		aCT_DeleteBuilder(
+				_file
+			)
+			.execute(context);
 	}
-	public static void aCT_Parent(IContext context, localfileoperations.proxies.Explorer _explorer)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OpenBuilder(
+		localfileoperations.proxies.File _file,
+		localfileoperations.proxies.Explorer _explorer
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Explorer", _explorer == null ? null : _explorer.getMendixObject());
-		Core.microflowCall("LocalFileOperations.ACT_Parent").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LocalFileOperations.ACT_Open");
+		builder = builder.withParam("File", _file);
+		builder = builder.withParam("Explorer", _explorer);
+		return builder;
 	}
-	public static void aCT_ReadFile(IContext context, localfileoperations.proxies.File _file)
+
+	public static void aCT_Open(
+		IContext context,
+		localfileoperations.proxies.File _file,
+		localfileoperations.proxies.Explorer _explorer
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("File", _file == null ? null : _file.getMendixObject());
-		Core.microflowCall("LocalFileOperations.ACT_ReadFile").withParams(params).execute(context);
+		aCT_OpenBuilder(
+				_file,
+				_explorer
+			)
+			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ParentBuilder(
+		localfileoperations.proxies.Explorer _explorer
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LocalFileOperations.ACT_Parent");
+		builder = builder.withParam("Explorer", _explorer);
+		return builder;
+	}
+
+	public static void aCT_Parent(
+		IContext context,
+		localfileoperations.proxies.Explorer _explorer
+	)
+	{
+		aCT_ParentBuilder(
+				_explorer
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ReadFileBuilder(
+		localfileoperations.proxies.File _file
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LocalFileOperations.ACT_ReadFile");
+		builder = builder.withParam("File", _file);
+		return builder;
+	}
+
+	public static void aCT_ReadFile(
+		IContext context,
+		localfileoperations.proxies.File _file
+	)
+	{
+		aCT_ReadFileBuilder(
+				_file
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_GetExplorerBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LocalFileOperations.DS_GetExplorer");
+		return builder;
+	}
+
 	public static localfileoperations.proxies.Explorer dS_GetExplorer(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("LocalFileOperations.DS_GetExplorer").withParams(params).execute(context);
-		return result == null ? null : localfileoperations.proxies.Explorer.initialize(context, result);
+		Object result = dS_GetExplorerBuilder().execute(context);
+		return result == null ? null : localfileoperations.proxies.Explorer.initialize(context, (IMendixObject) result);
 	}
-	public static java.util.List<localfileoperations.proxies.File> dS_ListFiles(IContext context, localfileoperations.proxies.Explorer _explorer)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_ListFilesBuilder(
+		localfileoperations.proxies.Explorer _explorer
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Explorer", _explorer == null ? null : _explorer.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("LocalFileOperations.DS_ListFiles").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> localfileoperations.proxies.File.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LocalFileOperations.DS_ListFiles");
+		builder = builder.withParam("Explorer", _explorer);
+		return builder;
 	}
-	public static void oCh_CurrentPath(IContext context, localfileoperations.proxies.Explorer _explorer)
+
+	public static java.util.List<localfileoperations.proxies.File> dS_ListFiles(
+		IContext context,
+		localfileoperations.proxies.Explorer _explorer
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Explorer", _explorer == null ? null : _explorer.getMendixObject());
-		Core.microflowCall("LocalFileOperations.OCh_CurrentPath").withParams(params).execute(context);
+		Object result = dS_ListFilesBuilder(
+				_explorer
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> localfileoperations.proxies.File.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_CurrentPathBuilder(
+		localfileoperations.proxies.Explorer _explorer
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LocalFileOperations.OCh_CurrentPath");
+		builder = builder.withParam("Explorer", _explorer);
+		return builder;
+	}
+
+	public static void oCh_CurrentPath(
+		IContext context,
+		localfileoperations.proxies.Explorer _explorer
+	)
+	{
+		oCh_CurrentPathBuilder(
+				_explorer
+			)
+			.execute(context);
 	}
 }

@@ -13,20 +13,25 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Reads the contents of a file and returns this as a String.
  */
-public class ReadFileToString extends CustomJavaAction<java.lang.String>
+public class ReadFileToString extends UserAction<java.lang.String>
 {
-	private java.lang.String file;
-	private java.lang.String charset;
+	private final java.lang.String file;
+	private final java.lang.String charset;
 
-	public ReadFileToString(IContext context, java.lang.String file, java.lang.String charset)
+	public ReadFileToString(
+		IContext context,
+		java.lang.String _file,
+		java.lang.String _charset
+	)
 	{
 		super(context);
-		this.file = file;
-		this.charset = charset;
+		this.file = _file;
+		this.charset = _charset;
 	}
 
 	@java.lang.Override

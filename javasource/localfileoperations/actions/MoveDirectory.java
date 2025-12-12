@@ -13,19 +13,25 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class MoveDirectory extends CustomJavaAction<java.lang.Void>
+public class MoveDirectory extends UserAction<java.lang.Void>
 {
-	private java.lang.String source;
-	private java.lang.String dest;
-	private java.lang.Boolean createDestDir;
+	private final java.lang.String source;
+	private final java.lang.String dest;
+	private final java.lang.Boolean createDestDir;
 
-	public MoveDirectory(IContext context, java.lang.String source, java.lang.String dest, java.lang.Boolean createDestDir)
+	public MoveDirectory(
+		IContext context,
+		java.lang.String _source,
+		java.lang.String _dest,
+		java.lang.Boolean _createDestDir
+	)
 	{
 		super(context);
-		this.source = source;
-		this.dest = dest;
-		this.createDestDir = createDestDir;
+		this.source = _source;
+		this.dest = _dest;
+		this.createDestDir = _createDestDir;
 	}
 
 	@java.lang.Override

@@ -4,36 +4,54 @@
 
 package myfirstmodule.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the MyFirstModule module
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Test1Builder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ACT_Test1");
+		return builder;
+	}
+
 	public static void aCT_Test1(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("MyFirstModule.ACT_Test1").withParams(params).execute(context);
+		aCT_Test1Builder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Test2Builder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ACT_Test2");
+		return builder;
+	}
+
 	public static void aCT_Test2(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("MyFirstModule.ACT_Test2").withParams(params).execute(context);
+		aCT_Test2Builder().execute(context);
 	}
-	public static void aCT_Test3(IContext context, myfirstmodule.proxies.MyFile _myFile)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Test3Builder(
+		myfirstmodule.proxies.MyFile _myFile
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("MyFile", _myFile == null ? null : _myFile.getMendixObject());
-		Core.microflowCall("MyFirstModule.ACT_Test3").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ACT_Test3");
+		builder = builder.withParam("MyFile", _myFile);
+		return builder;
+	}
+
+	public static void aCT_Test3(
+		IContext context,
+		myfirstmodule.proxies.MyFile _myFile
+	)
+	{
+		aCT_Test3Builder(
+				_myFile
+			)
+			.execute(context);
 	}
 }

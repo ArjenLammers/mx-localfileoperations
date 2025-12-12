@@ -22,22 +22,28 @@ import org.apache.commons.io.filefilter.WildcardFileFilter;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Returns a list of File entities which are contained in the supplied path.
  */
-public class List extends CustomJavaAction<java.util.List<IMendixObject>>
+public class List extends UserAction<java.util.List<IMendixObject>>
 {
-	private java.lang.String path;
-	private java.lang.String wildcard;
-	private java.lang.Boolean recursive;
+	private final java.lang.String path;
+	private final java.lang.String wildcard;
+	private final java.lang.Boolean recursive;
 
-	public List(IContext context, java.lang.String path, java.lang.String wildcard, java.lang.Boolean recursive)
+	public List(
+		IContext context,
+		java.lang.String _path,
+		java.lang.String _wildcard,
+		java.lang.Boolean _recursive
+	)
 	{
 		super(context);
-		this.path = path;
-		this.wildcard = wildcard;
-		this.recursive = recursive;
+		this.path = _path;
+		this.wildcard = _wildcard;
+		this.recursive = _recursive;
 	}
 
 	@java.lang.Override

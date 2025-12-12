@@ -13,18 +13,22 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Cleans a directory without deleting it.
  */
-public class CleanDirectory extends CustomJavaAction<java.lang.Void>
+public class CleanDirectory extends UserAction<java.lang.Void>
 {
-	private java.lang.String path;
+	private final java.lang.String path;
 
-	public CleanDirectory(IContext context, java.lang.String path)
+	public CleanDirectory(
+		IContext context,
+		java.lang.String _path
+	)
 	{
 		super(context);
-		this.path = path;
+		this.path = _path;
 	}
 
 	@java.lang.Override

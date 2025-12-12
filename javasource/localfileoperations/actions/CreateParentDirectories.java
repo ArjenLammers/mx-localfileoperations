@@ -13,18 +13,22 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Creates all parent directories for a File object, including any necessary but non-existent parent directories.
  */
-public class CreateParentDirectories extends CustomJavaAction<java.lang.Void>
+public class CreateParentDirectories extends UserAction<java.lang.Void>
 {
-	private java.lang.String path;
+	private final java.lang.String path;
 
-	public CreateParentDirectories(IContext context, java.lang.String path)
+	public CreateParentDirectories(
+		IContext context,
+		java.lang.String _path
+	)
 	{
 		super(context);
-		this.path = path;
+		this.path = _path;
 	}
 
 	@java.lang.Override

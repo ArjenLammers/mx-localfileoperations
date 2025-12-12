@@ -15,28 +15,34 @@ import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Reads the contents of a file and stores it in a FileDocument.
  */
-public class FileToFileDocument extends CustomJavaAction<java.lang.Void>
+public class FileToFileDocument extends UserAction<java.lang.Void>
 {
-	private java.lang.String file;
-	private IMendixObject __result;
-	private system.proxies.FileDocument result;
+	private final java.lang.String file;
+	/** @deprecated use result.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __result;
+	private final system.proxies.FileDocument result;
 
-	public FileToFileDocument(IContext context, java.lang.String file, IMendixObject result)
+	public FileToFileDocument(
+		IContext context,
+		java.lang.String _file,
+		IMendixObject _result
+	)
 	{
 		super(context);
-		this.file = file;
-		this.__result = result;
+		this.file = _file;
+		this.__result = _result;
+		this.result = _result == null ? null : system.proxies.FileDocument.initialize(getContext(), _result);
 	}
 
 	@java.lang.Override
 	public java.lang.Void executeAction() throws Exception
 	{
-		this.result = this.__result == null ? null : system.proxies.FileDocument.initialize(getContext(), __result);
-
 		// BEGIN USER CODE
 		File f = new File(file);
 		Core.storeFileDocumentContent(getContext(), __result, new FileInputStream(f));

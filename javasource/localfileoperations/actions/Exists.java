@@ -12,15 +12,19 @@ package localfileoperations.actions;
 import java.io.File;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class Exists extends CustomJavaAction<java.lang.Boolean>
+public class Exists extends UserAction<java.lang.Boolean>
 {
-	private java.lang.String file;
+	private final java.lang.String file;
 
-	public Exists(IContext context, java.lang.String file)
+	public Exists(
+		IContext context,
+		java.lang.String _file
+	)
 	{
 		super(context);
-		this.file = file;
+		this.file = _file;
 	}
 
 	@java.lang.Override

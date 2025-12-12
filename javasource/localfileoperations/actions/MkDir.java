@@ -12,15 +12,19 @@ package localfileoperations.actions;
 import java.io.File;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class MkDir extends CustomJavaAction<java.lang.Boolean>
+public class MkDir extends UserAction<java.lang.Boolean>
 {
-	private java.lang.String path;
+	private final java.lang.String path;
 
-	public MkDir(IContext context, java.lang.String path)
+	public MkDir(
+		IContext context,
+		java.lang.String _path
+	)
 	{
 		super(context);
-		this.path = path;
+		this.path = _path;
 	}
 
 	@java.lang.Override

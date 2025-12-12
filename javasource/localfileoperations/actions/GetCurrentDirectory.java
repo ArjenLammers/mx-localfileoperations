@@ -12,11 +12,12 @@ package localfileoperations.actions;
 import java.io.File;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Gets the current working directory (usually where the Mendix application is deployed).
  */
-public class GetCurrentDirectory extends CustomJavaAction<java.lang.String>
+public class GetCurrentDirectory extends UserAction<java.lang.String>
 {
 	public GetCurrentDirectory(IContext context)
 	{

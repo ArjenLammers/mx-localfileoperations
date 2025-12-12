@@ -12,11 +12,12 @@ package localfileoperations.actions;
 import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Returns the path for storage of temporary files.
  */
-public class GetTempDirectoryPath extends CustomJavaAction<java.lang.String>
+public class GetTempDirectoryPath extends UserAction<java.lang.String>
 {
 	public GetTempDirectoryPath(IContext context)
 	{

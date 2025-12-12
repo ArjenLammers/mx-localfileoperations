@@ -13,18 +13,22 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Implements behavior similar to the UNIX "touch" utility.
  */
-public class Touch extends CustomJavaAction<java.lang.Void>
+public class Touch extends UserAction<java.lang.Void>
 {
-	private java.lang.String file;
+	private final java.lang.String file;
 
-	public Touch(IContext context, java.lang.String file)
+	public Touch(
+		IContext context,
+		java.lang.String _file
+	)
 	{
 		super(context);
-		this.file = file;
+		this.file = _file;
 	}
 
 	@java.lang.Override

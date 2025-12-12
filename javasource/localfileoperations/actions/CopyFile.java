@@ -13,21 +13,26 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Copies a file to a new location preserving the file date.
  * 
  */
-public class CopyFile extends CustomJavaAction<java.lang.Void>
+public class CopyFile extends UserAction<java.lang.Void>
 {
-	private java.lang.String source;
-	private java.lang.String dest;
+	private final java.lang.String source;
+	private final java.lang.String dest;
 
-	public CopyFile(IContext context, java.lang.String source, java.lang.String dest)
+	public CopyFile(
+		IContext context,
+		java.lang.String _source,
+		java.lang.String _dest
+	)
 	{
 		super(context);
-		this.source = source;
-		this.dest = dest;
+		this.source = _source;
+		this.dest = _dest;
 	}
 
 	@java.lang.Override

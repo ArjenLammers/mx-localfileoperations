@@ -13,22 +13,28 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Writes a String to a file, creating the file if it does not exist.
  */
-public class WriteStringToFile extends CustomJavaAction<java.lang.Void>
+public class WriteStringToFile extends UserAction<java.lang.Void>
 {
-	private java.lang.String file;
-	private java.lang.String contents;
-	private java.lang.Boolean append;
+	private final java.lang.String file;
+	private final java.lang.String contents;
+	private final java.lang.Boolean append;
 
-	public WriteStringToFile(IContext context, java.lang.String file, java.lang.String contents, java.lang.Boolean append)
+	public WriteStringToFile(
+		IContext context,
+		java.lang.String _file,
+		java.lang.String _contents,
+		java.lang.Boolean _append
+	)
 	{
 		super(context);
-		this.file = file;
-		this.contents = contents;
-		this.append = append;
+		this.file = _file;
+		this.contents = _contents;
+		this.append = _append;
 	}
 
 	@java.lang.Override
